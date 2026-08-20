@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casio FX-991ES Plus</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="calculator">
+
+    <div class="top">
+        <h2>CASIO</h2>
+        <small>fx-991ES PLUS</small>
+    </div>
+
+    <div class="display">
+
+        <div id="history"></div>
+
+        <input
+        type="text"
+        id="screen"
+        readonly
+        value="0">
+
+    </div>
+
+    <div class="buttons">
+
+        <button onclick="press('(')">(</button>
+        <button onclick="press(')')">)</button>
+        <button onclick="scientific('sqrt(')">√</button>
+        <button onclick="clearScreen()" class="red">AC</button>
+
+        <button onclick="scientific('sin(')">sin</button>
+        <button onclick="scientific('cos(')">cos</button>
+        <button onclick="scientific('tan(')">tan</button>
+        <button onclick="press('/')">÷</button>
+
+        <button onclick="scientific('log(')">log</button>
+        <button onclick="scientific('ln(')">ln</button>
+        <button onclick="press('^')">xʸ</button>
+        <button onclick="press('*')">×</button>
+
+        <button onclick="press('7')">7</button>
+        <button onclick="press('8')">8</button>
+        <button onclick="press('9')">9</button>
+        <button onclick="press('-')">−</button>
+
+        <button onclick="press('4')">4</button>
+        <button onclick="press('5')">5</button>
+        <button onclick="press('6')">6</button>
+        <button onclick="press('+')">+</button>
+
+        <button onclick="press('1')">1</button>
+        <button onclick="press('2')">2</button>
+        <button onclick="press('3')">3</button>
+        <button onclick="scientific('pi')">π</button>
+
+        <button onclick="press('0')" class="zero">0</button>
+        <button onclick="press('.')">.</button>
+        <button onclick="calculate()" class="equal">=</button>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
