@@ -1,45 +1,158 @@
 # 🧮 Casio FX-991ES Plus Web Calculator
 
-A modern **scientific calculator web application** inspired by the design and layout of the **Casio FX-991ES Plus**. This project recreates the classic calculator experience using **HTML, CSS, and JavaScript**, while adding a clean and responsive web interface.
+A modern **scientific calculator web application** inspired by the design and functionality of the **Casio FX-991ES Plus**. This project is built using **HTML, CSS, and JavaScript** and combines a realistic calculator interface with useful scientific functions.
 
 ## 📌 Description
 
-This calculator is designed to look and feel similar to a Casio scientific calculator while running entirely in a web browser.
+This project recreates the look and feel of a Casio scientific calculator in a web browser.
 
-It supports basic arithmetic operations, scientific functions, keyboard input, and a calculator-style LCD display.
+The calculator includes basic arithmetic, scientific functions, trigonometry, logarithms, powers, factorials, percentage calculations, keyboard controls, calculation history, answer memory, and DEG/RAD modes.
 
-The project was created as a beginner-friendly web development project to practice **HTML structure, CSS styling, and JavaScript functionality**.
+The project is designed as a beginner-friendly web development project for practicing **HTML, CSS, JavaScript, DOM manipulation, event handling, and mathematical programming**.
 
 ## ✨ Features
 
-* ➕ Addition
-* ➖ Subtraction
-* ✖️ Multiplication
-* ➗ Division
-* 🔢 Decimal numbers
-* 🧮 Parentheses
-* 🟰 Calculation/equal button
-* √ Square root
-* `sin` Sine
-* `cos` Cosine
-* `tan` Tangent
-* `log` Logarithm
-* `ln` Natural logarithm
-* π Pi
-* xʸ Exponents
-* 🧹 AC / Clear
-* ⌨️ Keyboard support
-* 📜 Previous calculation display
-* 💻 Responsive web design
-* 🎨 Casio-inspired interface
-* ✨ Button animations and effects
+### 🔢 Basic Calculations
+
+* Addition
+* Subtraction
+* Multiplication
+* Division
+* Decimal numbers
+* Parentheses
+* Exponents
+* Pi (π)
+* Euler's number (e)
+* Percentage
+* Absolute value
+
+### 🧮 Scientific Functions
+
+* Square (`x²`)
+* Cube (`x³`)
+* Square root (`√`)
+* Cube root (`∛`)
+* Reciprocal (`1/x`)
+* Factorial (`x!`)
+* Power (`xʸ`)
+* Logarithm (`log`)
+* Natural logarithm (`ln`)
+
+### 📐 Trigonometry
+
+* Sine (`sin`)
+* Cosine (`cos`)
+* Tangent (`tan`)
+* Inverse sine (`sin⁻¹`)
+* Inverse cosine (`cos⁻¹`)
+* Inverse tangent (`tan⁻¹`)
+
+### 📏 Angle Modes
+
+The calculator supports:
+
+* DEG – Degrees
+* RAD – Radians
+
+You can switch between the two modes using the **DEG/RAD** button.
+
+### 💾 Answer & History
+
+* `ANS` button for recalling the previous answer
+* Calculation history
+* Clear calculation history
+* Previous calculation shown above the main display
+
+### ⌨️ Keyboard Support
+
+The calculator can also be controlled using the computer keyboard.
+
+| Key         | Function       |
+| ----------- | -------------- |
+| `0-9`       | Enter numbers  |
+| `+`         | Addition       |
+| `-`         | Subtraction    |
+| `*`         | Multiplication |
+| `/`         | Division       |
+| `.`         | Decimal        |
+| `(` `)`     | Parentheses    |
+| `Enter`     | Calculate      |
+| `Backspace` | Delete         |
+| `Escape`    | Clear          |
+
+### 🎛️ Calculator Controls
+
+The interface includes several Casio-inspired controls:
+
+* SHIFT
+* ALPHA
+* DEL
+* AC
+* DEG/RAD
+* ANS
+* HISTORY
+* CLR HIST
+
+The **SHIFT** indicator also appears on the calculator display when activated.
+
+## 🎨 Design Features
+
+The calculator has been designed to resemble a modernized Casio scientific calculator.
+
+Features include:
+
+* Casio-inspired layout
+* Dark calculator body
+* LCD-style green display
+* Solar-panel design
+* Rounded calculator body
+* Realistic button shadows
+* Button press animations
+* Hover effects
+* Responsive layout
+* Mobile-friendly design
+* Orbitron digital-style display font
+* Modern gradient background
 
 ## 🛠️ Technologies Used
 
-* **HTML5** – Creates the calculator structure and buttons.
-* **CSS3** – Handles the design, layout, colors, shadows, and animations.
-* **JavaScript** – Handles calculations, scientific functions, keyboard controls, and user interactions.
-* **Google Fonts** – Used for the LCD-style calculator display.
+### HTML5
+
+Used to create the calculator structure, display, buttons, and controls.
+
+### CSS3
+
+Used for:
+
+* Calculator styling
+* Grid layouts
+* Colors
+* Shadows
+* Gradients
+* Animations
+* Responsive design
+* LCD display styling
+
+### JavaScript
+
+Used to implement:
+
+* Calculator operations
+* Scientific calculations
+* Trigonometric functions
+* DEG/RAD conversion
+* Factorials
+* Powers
+* Square and cube calculations
+* Answer memory
+* Calculation history
+* Keyboard controls
+* Error handling
+* SHIFT and ALPHA states
+
+### Google Fonts
+
+The **Orbitron** font is used to create a digital calculator-style display.
 
 ## 📂 Project Structure
 
@@ -54,36 +167,46 @@ casio-calculator/
 
 ### `index.html`
 
-Contains the main structure of the calculator, including:
+Contains the calculator's structure, including:
 
 * Calculator body
-* Display
-* Buttons
-* Scientific functions
-* Basic arithmetic buttons
+* Brand section
+* Solar panel
+* LCD display
+* Status indicators
+* Scientific buttons
+* Number keypad
+* Function buttons
 
 ### `style.css`
 
-Controls the visual appearance of the calculator, including:
+Controls the appearance of the calculator, including:
 
-* Colors
-* Layout
-* Button styling
-* Shadows
-* Rounded corners
+* Dark body design
+* LCD display
+* Button colors
+* Button shadows
 * Hover effects
-* Button animations
-* Responsive design
+* Press animations
+* Responsive layout
+* Mobile support
 
 ### `script.js`
 
-Controls the calculator's functionality, including:
+Contains the calculator's main functionality, including:
 
-* Number input
-* Mathematical operations
-* Scientific functions
-* Clearing the display
-* Calculations
+* Basic arithmetic
+* Scientific operations
+* Trigonometric calculations
+* Inverse trigonometry
+* Logarithms
+* Factorials
+* Percentage
+* Square and cube functions
+* Square and cube roots
+* DEG/RAD modes
+* Answer memory
+* Calculation history
 * Keyboard support
 * Error handling
 
@@ -99,68 +222,114 @@ Controls the calculator's functionality, including:
 index.html
 ```
 
-4. The calculator will open in your default web browser.
+4. The calculator will launch in your default web browser.
 
-No server or additional software is required.
+No server, database, or additional software is required.
 
-## ⌨️ Keyboard Controls
+## 🧪 Example Calculations
 
-The calculator also supports keyboard input.
+### Basic Arithmetic
 
-| Key         | Function       |
-| ----------- | -------------- |
-| `0-9`       | Numbers        |
-| `+`         | Addition       |
-| `-`         | Subtraction    |
-| `*`         | Multiplication |
-| `/`         | Division       |
-| `.`         | Decimal        |
-| `(` `)`     | Parentheses    |
-| `Enter`     | Calculate      |
-| `Backspace` | Delete         |
-| `Escape`    | Clear          |
+```text
+25 + 15 = 40
+```
+
+### Square Root
+
+```text
+√144 = 12
+```
+
+### Power
+
+```text
+2 ^ 8 = 256
+```
+
+### Factorial
+
+```text
+5! = 120
+```
+
+### Percentage
+
+```text
+50% = 0.5
+```
+
+### Trigonometry
+
+In DEG mode:
+
+```text
+sin(30) = 0.5
+```
+
+### Logarithm
+
+```text
+log(100) = 2
+```
 
 ## 🎯 Purpose of the Project
 
-This project was created to practice:
+This project was created to practice and demonstrate:
 
-* HTML5
-* CSS3
-* JavaScript
+* HTML5 development
+* CSS3 styling
+* JavaScript programming
 * DOM manipulation
 * Event handling
-* Mathematical expressions
+* Functions
+* Conditional statements
+* Mathematical operations
+* Arrays
+* Keyboard events
 * Responsive web design
 * User interface design
 
-It is also a good beginner project for learning how different web technologies work together to create an interactive application.
+It also demonstrates how a physical calculator can be recreated as an interactive web application.
 
 ## 🔮 Future Improvements
 
-Possible future features include:
+The project can continue to be expanded with more advanced Casio-style features:
 
-* [ ] SHIFT button
-* [ ] ALPHA button
+* [ ] Complete SHIFT functionality
+* [ ] Complete ALPHA functionality
 * [ ] MODE menu
-* [ ] DEL button
-* [ ] ANS function
+* [ ] SETUP menu
 * [ ] Fraction calculations
-* [ ] Percentage calculations
-* [ ] Factorial
-* [ ] Permutations and combinations
+* [ ] Mixed fractions
+* [ ] Decimal ↔ fraction conversion
+* [ ] `S↔D`
+* [ ] EXP / scientific notation
+* [ ] ENG notation
+* [ ] M+ / M− memory functions
+* [ ] STO / RCL memory functions
 * [ ] Statistics mode
+* [ ] Regression calculations
 * [ ] Equation solver
+* [ ] Simultaneous equations
+* [ ] Polynomial equations
 * [ ] Matrix calculations
 * [ ] Vector calculations
-* [ ] Complex number calculations
-* [ ] Calculation history panel
-* [ ] Dark/light themes
-* [ ] Sound effects
+* [ ] Complex numbers
+* [ ] Random number generation
+* [ ] Permutations and combinations
+* [ ] Prime factorization
 * [ ] More realistic FX-991ES Plus button layout
+* [ ] Two-line LCD display
+* [ ] Calculator sound effects
+* [ ] Theme customization
+* [ ] Improved calculation history
+* [ ] Local storage for saved calculations
 
 ## ⚠️ Disclaimer
 
-This project is **inspired by the Casio FX-991ES Plus** for educational and personal development purposes. It is not an official Casio product.
+This project is **inspired by the Casio FX-991ES Plus** for educational and personal development purposes.
+
+It is **not an official Casio product** and is not affiliated with or endorsed by Casio.
 
 ## 👨‍💻 Author
 
