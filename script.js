@@ -1,80 +1,541 @@
-let screen = document.getElementById("screen");
-let history = document.getElementById("history");
+const screen = document.getElementById("screen");
+const historyDisplay = document.getElementById("history");
 
-function press(value){
+let answer = 0;
 
-if(screen.value=="0")
-screen.value=value;
+let isShift = false;
+let isAlpha = false;
 
-else
-screen.value+=value;
+let angleMode = "DEG";
 
-}
+let calculationHistory = [];
 
-function clearScreen(){
+function press(value) {
 
-screen.value="0";
-history.innerHTML="";
+    if (
+        screen.value === "0" ||
+        screen.value === "Error"
+    ) {
 
-}
+        screen.value = value;
 
-function scientific(func){
+    } else {
 
-if(func=="pi"){
+        screen.value += value;
 
-press(Math.PI);
-
-return;
-
-}
-
-press(func);
+    }
 
 }
 
-function calculate(){
+function clearScreen() {
 
-try{
+    screen.value = "0";
 
-history.innerHTML=screen.value;
-
-let expression=screen.value;
-
-expression=expression.replace(/\^/g,"**");
-
-expression=expression.replace(/sqrt/g,"Math.sqrt");
-expression=expression.replace(/sin/g,"Math.sin");
-expression=expression.replace(/cos/g,"Math.cos");
-expression=expression.replace(/tan/g,"Math.tan");
-expression=expression.replace(/log/g,"Math.log10");
-expression=expression.replace(/ln/g,"Math.log");
-
-screen.value=eval(expression);
+    historyDisplay.textContent = "";
 
 }
 
-catch{
+function deleteLast() {
 
-screen.value="Error";
+    if (
+        screen.value === "Error" ||
+        screen.value.length <= 1
+    ) {
+
+        screen.value = "0";
+
+    } else {
+
+        screen.value =
+            screen.value.slice(0, -1);
+
+    }
 
 }
 
+function calculate() {
+
+    try {
+
+        let expression =
+            screen.value;
+
+        expression =
+            expression.replace(
+                /\^/g,
+                "**"
+            );
+
+        expression =
+            expression.replace(
+                /π/g,
+                "Math.PI"
+            );
+
+        expression =
+            expression.replace(
+                /\be\b/g,
+                "Math.E"
+            );
+
+        historyDisplay.textContent =
+            screen.value + " =";
+
+        let result =
+            Function(
+                `"use strict"; return (${expression})`
+            )();
+
+        if (
+            typeof result !== "number" ||
+            !Number.isFinite(result)
+        ) {
+
+            throw new Error();
+
+        }
+
+        answer = result;
+
+        screen.value =
+            formatNumber(result);
+
+        calculationHistory.push({
+            expression: expression,
+            result: result
+        });
+
+    }
+
+    catch {
+
+        screen.value = "Error";
+
+    }
+
 }
 
-document.addEventListener("keydown",(e)=>{
+function formatNumber(number) {
 
-const key=e.key;
+    if (
+        Number.isInteger(number)
+    ) {
 
-if("0123456789+-*/().".includes(key))
-press(key);
+        return number.toString();
 
-if(key==="Enter")
-calculate();
+    }
 
-if(key==="Backspace")
-screen.value=screen.value.slice(0,-1)||"0";
+    return Number(
+        number.toFixed(10)
+    ).toString();
 
-if(key==="Escape")
-clearScreen();
+}
 
-});
+function square() {
+
+    let value =
+        parseFloat(screen.value);
+
+    if (isNaN(value)) return;
+
+    answer = value ** 2;
+
+    screen.value =
+        formatNumber(answer);
+
+}
+
+function cube() {
+
+    let value =
+        parseFloat(screen.value);
+
+    if (isNaN(value)) return;
+
+    answer = value ** 3;
+
+    screen.value =
+        formatNumber(answer);
+
+}
+
+function squareRoot() {
+
+    let value =
+        parseFloat(screen.value);
+
+    if (value < 0) {
+
+        screen.value = "Error";
+
+        return;
+
+    }
+
+    answer = Math.sqrt(value);
+
+    screen.value =
+        formatNumber(answer);
+
+}
+
+function cubeRoot() {
+
+    let value =
+        parseFloat(screen.value);
+
+    answer =
+        Math.cbrt(value);
+
+    screen.value =
+        formatNumber(answer);
+
+}
+
+function reciprocal() {
+
+    let value =
+        parseFloat(screen.value);
+
+    if (value === 0) {
+
+        screen.value = "Error";
+
+        return;
+
+    }
+
+    answer = 1 / value;
+
+    screen.value =
+        formatNumber(answer);
+
+}
+
+function factorial() {
+
+    let number =
+        parseInt(screen.value);
+
+    if (
+        number < 0 ||
+        !Number.isInteger(number)
+    ) {
+
+        screen.value = "Error";
+
+        return;
+
+    }
+
+    let result = 1;
+
+    for (
+        let i = 2;
+        i <= number;
+        i++
+    ) {
+
+        result *= i;
+
+    }
+
+    answer = result;
+
+    screen.value =
+        formatNumber(result);
+
+}
+
+function percentage() {
+
+    let value =
+        parseFloat(screen.value);
+
+    answer = value / 100;
+
+    screen.value =
+        formatNumber(answer);
+
+}
+
+function absolute() {
+
+    let value =
+        parseFloat(screen.value);
+
+    answer =
+        Math.abs(value);
+
+    screen.value =
+        formatNumber(answer);
+
+}
+
+function convertToRadians(value) {
+
+    if (angleMode === "DEG") {
+
+        return value * Math.PI / 180;
+
+    }
+
+    return value;
+
+}
+
+
+function trig(type) {
+
+    let value =
+        parseFloat(screen.value);
+
+    let radians =
+        convertToRadians(value);
+
+    let result;
+
+    if (type === "sin") {
+
+        result = Math.sin(radians);
+
+    }
+
+    if (type === "cos") {
+
+        result = Math.cos(radians);
+
+    }
+
+    if (type === "tan") {
+
+        result = Math.tan(radians);
+
+    }
+
+    answer = result;
+
+    screen.value =
+        formatNumber(result);
+
+}
+
+function inverseTrig(type) {
+
+    let value =
+        parseFloat(screen.value);
+
+    let result;
+
+    if (type === "sin") {
+
+        result = Math.asin(value);
+
+    }
+
+    if (type === "cos") {
+
+        result = Math.acos(value);
+
+    }
+
+    if (type === "tan") {
+
+        result = Math.atan(value);
+
+    }
+
+    if (angleMode === "DEG") {
+
+        result =
+            result * 180 / Math.PI;
+
+    }
+
+    answer = result;
+
+    screen.value =
+        formatNumber(result);
+
+}
+
+function logFunction() {
+
+    let value =
+        parseFloat(screen.value);
+
+    if (value <= 0) {
+
+        screen.value = "Error";
+
+        return;
+
+    }
+
+    answer =
+        Math.log10(value);
+
+    screen.value =
+        formatNumber(answer);
+
+}
+
+function lnFunction() {
+
+    let value =
+        parseFloat(screen.value);
+
+    if (value <= 0) {
+
+        screen.value = "Error";
+
+        return;
+
+    }
+
+    answer =
+        Math.log(value);
+
+    screen.value =
+        formatNumber(answer);
+
+}
+
+function insertPi() {
+
+    if (screen.value === "0") {
+
+        screen.value = "π";
+
+    } else {
+
+        screen.value += "π";
+
+    }
+
+}
+
+function insertE() {
+
+    if (screen.value === "0") {
+
+        screen.value = "e";
+
+    } else {
+
+        screen.value += "e";
+
+    }
+
+}
+
+function useAnswer() {
+
+    screen.value =
+        formatNumber(answer);
+
+}
+
+function toggleShift() {
+
+    isShift = !isShift;
+
+    document.getElementById(
+        "shiftIndicator"
+    ).textContent =
+        isShift ? "SHIFT" : "";
+
+}
+
+function toggleAlpha() {
+
+    isAlpha = !isAlpha;
+
+}
+
+function toggleAngle() {
+
+    if (angleMode === "DEG") {
+
+        angleMode = "RAD";
+
+    } else {
+
+        angleMode = "DEG";
+
+    }
+
+    document.getElementById(
+        "angleIndicator"
+    ).textContent =
+        angleMode;
+
+}
+
+function showHistory() {
+
+    if (
+        calculationHistory.length === 0
+    ) {
+
+        historyDisplay.textContent =
+            "No history";
+
+        return;
+
+    }
+
+    let last =
+        calculationHistory[
+            calculationHistory.length - 1
+        ];
+
+    historyDisplay.textContent =
+        `${last.expression} = ${last.result}`;
+
+}
+
+function clearHistory() {
+
+    calculationHistory = [];
+
+    historyDisplay.textContent =
+        "History cleared";
+
+}
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        const key = event.key;
+
+        if (
+            "0123456789+-*/()."
+            .includes(key)
+        ) {
+
+            press(key);
+
+        }
+
+        if (key === "Enter") {
+
+            calculate();
+
+        }
+
+        if (key === "Backspace") {
+
+            deleteLast();
+
+        }
+
+        if (key === "Escape") {
+
+            clearScreen();
+
+        }
+
+    }
+);
