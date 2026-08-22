@@ -1,40 +1,51 @@
+/* =====================================================
+   RESET
+===================================================== */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+html,
 body {
 
-    min-height: 100vh;
+    width: 100%;
+    min-width: 450px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    min-height: 850px;
 
-    padding: 20px;
-
-    background:
-        radial-gradient(
-            circle at top,
-            #4b5563,
-            #111827 70%
-        );
+    margin: 0;
+    padding: 0;
 
     font-family: Arial, sans-serif;
+
+    background: #111827;
+
+    overflow: auto;
 
 }
 
 
-/* CALCULATOR */
+/* =====================================================
+   CALCULATOR WINDOW
+===================================================== */
 
-.calculator {
+.calculator-window {
 
-    width: 430px;
+    width: 450px;
 
-    padding: 22px;
+    min-width: 450px;
 
-    border-radius: 24px;
+    min-height: 850px;
+
+    margin: 0 auto;
 
     background:
         linear-gradient(
@@ -43,16 +54,40 @@ body {
             #111827
         );
 
-    box-shadow:
-        0 30px 60px rgba(0,0,0,.55),
-        inset 0 1px 2px rgba(255,255,255,.15);
+    overflow: visible;
 
 }
 
 
-/* TOP */
+/* =====================================================
+   CALCULATOR CONTENT
+===================================================== */
+
+.calculator-content {
+
+    width: 100%;
+
+    min-height: 850px;
+
+    padding: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #374151,
+            #111827
+        );
+
+}
+
+
+/* =====================================================
+   CASIO HEADER
+===================================================== */
 
 .calculator-top {
+
+    width: 100%;
 
     display: flex;
 
@@ -64,6 +99,7 @@ body {
 
 }
 
+
 .brand h1 {
 
     color: white;
@@ -74,20 +110,23 @@ body {
 
 }
 
+
 .brand span {
 
     display: block;
+
+    margin-top: 4px;
 
     color: #d1d5db;
 
     font-size: 13px;
 
-    margin-top: 4px;
-
 }
 
 
-/* SOLAR PANEL */
+/* =====================================================
+   SOLAR PANEL
+===================================================== */
 
 .solar-panel {
 
@@ -101,7 +140,12 @@ body {
 
     border: 2px solid #4b5563;
 
+    border-radius: 2px;
+
+    overflow: hidden;
+
 }
+
 
 .solar-panel div {
 
@@ -112,57 +156,83 @@ body {
 }
 
 
-/* DISPLAY */
+.solar-panel div:last-child {
+
+    border-right: none;
+
+}
+
+
+/* =====================================================
+   DISPLAY
+===================================================== */
 
 .display-container {
 
-    background: #d9edc8;
+    width: 100%;
 
-    border-radius: 10px;
+    min-height: 100px;
 
     padding: 12px 15px;
 
     margin-bottom: 15px;
 
-    min-height: 100px;
+    background: #d9edc8;
+
+    border-radius: 10px;
 
     box-shadow:
-        inset 0 0 12px rgba(0,0,0,.35),
-        0 3px 5px rgba(0,0,0,.25);
+        inset 0 0 12px rgba(0, 0, 0, .35),
+        0 3px 5px rgba(0, 0, 0, .25);
 
 }
 
+
 .display-status {
+
+    width: 100%;
+
+    height: 18px;
 
     display: flex;
 
     gap: 12px;
 
-    font-size: 11px;
-
     color: #374151;
 
-    height: 18px;
+    font-family: "Orbitron", monospace;
+
+    font-size: 11px;
 
 }
+
 
 #history {
 
+    width: 100%;
+
     height: 20px;
-
-    text-align: right;
-
-    font-size: 13px;
-
-    color: #4b5563;
 
     overflow: hidden;
 
+    white-space: nowrap;
+
+    text-align: right;
+
+    color: #4b5563;
+
+    font-size: 13px;
+
 }
+
 
 #screen {
 
+    display: block;
+
     width: 100%;
+
+    height: 38px;
 
     border: none;
 
@@ -170,25 +240,33 @@ body {
 
     background: transparent;
 
+    color: #111827;
+
     text-align: right;
 
     font-family: "Orbitron", monospace;
 
     font-size: 28px;
 
-    color: #111827;
+    caret-color: transparent;
 
 }
 
 
-/* BUTTON GROUPS */
+/* =====================================================
+   BUTTON ROWS
+===================================================== */
 
 .mode-buttons,
 .scientific-buttons,
 .buttons,
 .extra-buttons {
 
+    width: 100%;
+
     display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
 
     gap: 8px;
 
@@ -196,32 +274,10 @@ body {
 
 }
 
-.mode-buttons {
 
-    grid-template-columns: repeat(4, 1fr);
-
-}
-
-.scientific-buttons {
-
-    grid-template-columns: repeat(4, 1fr);
-
-}
-
-.buttons {
-
-    grid-template-columns: repeat(4, 1fr);
-
-}
-
-.extra-buttons {
-
-    grid-template-columns: repeat(4, 1fr);
-
-}
-
-
-/* BUTTON */
+/* =====================================================
+   NORMAL BUTTONS
+===================================================== */
 
 button {
 
@@ -235,6 +291,8 @@ button {
 
     color: #111827;
 
+    font-family: Arial, sans-serif;
+
     font-size: 16px;
 
     font-weight: bold;
@@ -245,17 +303,19 @@ button {
         0 4px 0 #9ca3af;
 
     transition:
+        filter .15s,
         transform .1s,
-        box-shadow .1s,
-        filter .15s;
+        box-shadow .1s;
 
 }
+
 
 button:hover {
 
     filter: brightness(1.08);
 
 }
+
 
 button:active {
 
@@ -266,13 +326,16 @@ button:active {
 }
 
 
-/* SPECIAL BUTTONS */
+/* =====================================================
+   SPECIAL BUTTONS
+===================================================== */
 
 .yellow {
 
     background: #facc15;
 
 }
+
 
 .red {
 
@@ -281,6 +344,7 @@ button:active {
     color: white;
 
 }
+
 
 .equal {
 
@@ -293,6 +357,11 @@ button:active {
 
 }
 
+
+/* =====================================================
+   ZERO BUTTON
+===================================================== */
+
 .zero {
 
     grid-column: span 2;
@@ -300,17 +369,19 @@ button:active {
 }
 
 
-/* EXTRA BUTTONS */
+/* =====================================================
+   EXTRA BUTTONS
+===================================================== */
 
 .extra-buttons button {
 
     height: 40px;
 
-    font-size: 11px;
-
     background: #374151;
 
     color: white;
+
+    font-size: 11px;
 
     box-shadow:
         0 3px 0 #111827;
@@ -318,29 +389,104 @@ button:active {
 }
 
 
-/* MOBILE */
+/* =====================================================
+   REMOVE OLD WINDOW FEATURES
+===================================================== */
 
-@media (max-width: 500px) {
+.window-titlebar,
+.window-controls,
+.window-button,
+.restore-button {
 
-    .calculator {
+    display: none !important;
 
-        width: 100%;
+}
 
-        max-width: 400px;
 
-        padding: 15px;
+/* =====================================================
+   NO DRAGGING
+===================================================== */
+
+.calculator-window.dragging {
+
+    box-shadow: none;
+
+}
+
+
+/* =====================================================
+   NO MINIMIZED STATE
+===================================================== */
+
+.calculator-window.minimized {
+
+    display: block;
+
+}
+
+
+/* =====================================================
+   NO MAXIMIZED STATE
+===================================================== */
+
+.calculator-window.maximized {
+
+    width: 450px;
+
+    min-width: 450px;
+
+    height: auto;
+
+    min-height: 850px;
+
+    border-radius: 0;
+
+}
+
+
+/* =====================================================
+   PREVENT CONTENT FROM BEING CUT
+===================================================== */
+
+.calculator-content,
+.calculator-window {
+
+    overflow: visible;
+
+}
+
+
+/* =====================================================
+   LARGE WINDOW
+===================================================== */
+
+@media (min-height: 900px) {
+
+    body {
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: flex-start;
 
     }
 
-    button {
+}
 
-        height: 48px;
 
-    }
+/* =====================================================
+   SMALL WINDOW PROTECTION
+===================================================== */
 
-    #screen {
+@media (max-height: 849px) {
 
-        font-size: 23px;
+    html,
+    body {
+
+        min-height: 850px;
+
+        overflow: auto;
 
     }
 
