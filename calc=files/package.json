@@ -1,0 +1,27 @@
+{
+  "name": "fx-991es-plus-calculator",
+  "version": "1.0.0",
+  "description": "FX-991ES PLUS inspired desktop scientific calculator",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^38.0.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.josenavoa.fx991esplus",
+    "productName": "FX-991ES PLUS Calculator",
+    "files": [
+      "index.html",
+      "style.css",
+      "script.js",
+      "main.js"
+    ],
+    "win": {
+      "target": "nsis"
+    }
+  }
+}
