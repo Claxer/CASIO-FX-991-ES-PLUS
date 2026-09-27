@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FX-991ES PLUS Web Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+    <div class="top-bar">
+        <div>
+            <div class="brand">CASIO</div>
+            <div class="model">fx-991ES PLUS</div>
+        </div>
+
+        <div class="top-controls">
+            <button onclick="toggleHistory()">HISTORY</button>
+            <button onclick="openSettings()">SETUP</button>
+            <button onclick="toggleTheme()">☾</button>
+        </div>
+    </div>
+
+    <div class="calculator">
+
+        <div class="display-container">
+
+            <div class="status-row">
+                <span id="modeDisplay">COMP</span>
+                <span id="angleDisplay">DEG</span>
+                <span id="memoryDisplay"></span>
+            </div>
+
+            <div id="expressionDisplay" class="expression"></div>
+
+            <div id="resultDisplay" class="result">
+                0
+            </div>
+
+        </div>
+
+        <div class="mode-bar">
+            <button onclick="setMode('COMP')">COMP</button>
+            <button onclick="setMode('CMPLX')">CMPLX</button>
+            <button onclick="setMode('STAT')">STAT</button>
+            <button onclick="setMode('BASE')">BASE-N</button>
+            <button onclick="setMode('EQN')">EQN</button>
+            <button onclick="setMode('MATRIX')">MATRIX</button>
+            <button onclick="setMode('TABLE')">TABLE</button>
+            <button onclick="setMode('VECTOR')">VECTOR</button>
+        </div>
+
+        <div class="function-row">
+            <button onclick="insertFunction('sin(')">sin</button>
+            <button onclick="insertFunction('cos(')">cos</button>
+            <button onclick="insertFunction('tan(')">tan</button>
+            <button onclick="insertFunction('asin(')">sin⁻¹</button>
+            <button onclick="insertFunction('acos(')">cos⁻¹</button>
+            <button onclick="insertFunction('atan(')">tan⁻¹</button>
+        </div>
+
+        <div class="function-row">
+            <button onclick="insertFunction('sinh(')">sinh</button>
+            <button onclick="insertFunction('cosh(')">cosh</button>
+            <button onclick="insertFunction('tanh(')">tanh</button>
+            <button onclick="insertFunction('log(')">log</button>
+            <button onclick="insertFunction('ln(')">ln</button>
+            <button onclick="insertFunction('sqrt(')">√</button>
+        </div>
+
+        <div class="function-row">
+            <button onclick="insertFunction('abs(')">Abs</button>
+            <button onclick="insertFunction('floor(')">Int</button>
+            <button onclick="insertFunction('ceil(')">Intg</button>
+            <button onclick="insertFunction('gcd(')">GCD</button>
+            <button onclick="insertFunction('lcm(')">LCM</button>
+            <button onclick="insertFunction('factorial(')">x!</button>
+        </div>
+
+        <div class="memory-row">
+            <button onclick="memoryClear()">MC</button>
+            <button onclick="memoryRecall()">MR</button>
+            <button onclick="memoryAdd()">M+</button>
+            <button onclick="memorySubtract()">M-</button>
+            <button onclick="useAnswer()">Ans</button>
+            <button onclick="randomNumber()">Ran#</button>
+        </div>
+
+        <div class="keypad">
+
+            <button class="secondary" onclick="insertText('(')">(</button>
+            <button class="secondary" onclick="insertText(')')">)</button>
+            <button class="secondary" onclick="insertText('π')">π</button>
+            <button class="secondary" onclick="insertText('e')">e</button>
+            <button class="secondary" onclick="insertText('^')">xʸ</button>
+            <button class="secondary" onclick="insertText('^2')">x²</button>
+
+            <button onclick="insertText('7')">7</button>
+            <button onclick="insertText('8')">8</button>
+            <button onclick="insertText('9')">9</button>
+            <button class="operator" onclick="insertText('/')">÷</button>
+            <button class="secondary" onclick="insertFunction('10^(')">10ˣ</button>
+            <button class="secondary" onclick="insertFunction('exp(')">eˣ</button>
+
+            <button onclick="insertText('4')">4</button>
+            <button onclick="insertText('5')">5</button>
+            <button onclick="insertText('6')">6</button>
+            <button class="operator" onclick="insertText('*')">×</button>
+            <button class="secondary" onclick="insertFunction('log10(')">log₁₀</button>
+            <button class="secondary" onclick="insertFunction('log2(')">log₂</button>
+
+            <button onclick="insertText('1')">1</button>
+            <button onclick="insertText('2')">2</button>
+            <button onclick="insertText('3')">3</button>
+            <button class="operator" onclick="insertText('-')">−</button>
+            <button class="secondary" onclick="insertFunction('nCr(')">nCr</button>
+            <button class="secondary" onclick="insertFunction('nPr(')">nPr</button>
+
+            <button onclick="insertText('0')">0</button>
+            <button onclick="insertText('.')">.</button>
+            <button onclick="insertText(',')">,</button>
+            <button class="operator" onclick="insertText('+')">+</button>
+            <button class="secondary" onclick="insertText('%')">%</button>
+            <button class="equals" onclick="calculate()">=</button>
+
+            <button class="control" onclick="clearCalculator()">AC</button>
+            <button class="control" onclick="deleteLast()">DEL</button>
+            <button class="secondary" onclick="toggleAngle()">DRG</button>
+            <button class="secondary" onclick="showConstants()">CONST</button>
+            <button class="secondary" onclick="showConversions()">CONV</button>
+            <button class="secondary" onclick="showAdvanced()">MENU</button>
+
+        </div>
+
+    </div>
+
+    <div id="historyPanel" class="side-panel hidden">
+
+        <div class="panel-header">
+            <h2>Calculation History</h2>
+            <button onclick="toggleHistory()">×</button>
+        </div>
+
+        <button class="clear-history" onclick="clearHistory()">
+            Clear History
+        </button>
+
+        <div id="historyList"></div>
+
+    </div>
+
+</div>
+
+<div id="modal" class="modal hidden">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <h2 id="modalTitle">Menu</h2>
+            <button onclick="closeModal()">×</button>
+        </div>
+
+        <div id="modalBody"></div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjs@14.0.1/lib/browser/math.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
