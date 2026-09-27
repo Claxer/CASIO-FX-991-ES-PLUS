@@ -1,0 +1,414 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background: #181818;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+
+.app {
+    width: 900px;
+    max-width: 95vw;
+    min-height: 750px;
+    background: #222222;
+    border-radius: 18px;
+    box-shadow: 0 25px 70px rgba(0,0,0,0.6);
+    overflow: hidden;
+    position: relative;
+}
+
+.top-bar {
+    height: 80px;
+    background: #292929;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+    border-bottom: 1px solid #3a3a3a;
+}
+
+.brand {
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.model {
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 4px;
+}
+
+.top-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.top-controls button {
+    background: #353535;
+    color: white;
+    border: 1px solid #4b4b4b;
+    border-radius: 7px;
+    padding: 9px 13px;
+    cursor: pointer;
+}
+
+.top-controls button:hover {
+    background: #444;
+}
+
+.calculator {
+    padding: 25px;
+}
+
+.display-container {
+    background: #cbd0bd;
+    color: #111;
+    border: 8px solid #111;
+    border-radius: 10px;
+    height: 145px;
+    padding: 12px 18px;
+    box-shadow: inset 0 0 12px rgba(0,0,0,.3);
+    margin-bottom: 15px;
+}
+
+.status-row {
+    height: 22px;
+    display: flex;
+    gap: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.expression {
+    height: 35px;
+    font-size: 20px;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.result {
+    height: 55px;
+    font-size: 35px;
+    text-align: right;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.mode-bar {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.mode-bar button {
+    background: #303030;
+    border: 1px solid #555;
+    color: #ddd;
+    border-radius: 5px;
+    padding: 8px 3px;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.mode-bar button:hover {
+    background: #454545;
+}
+
+.function-row,
+.memory-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 7px;
+    margin-bottom: 8px;
+}
+
+.function-row button,
+.memory-row button {
+    height: 37px;
+    background: #3a3a3a;
+    border: 1px solid #555;
+    color: white;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.function-row button:hover,
+.memory-row button:hover {
+    background: #505050;
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.keypad button {
+    height: 58px;
+    border: none;
+    border-radius: 8px;
+    background: #444;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 3px 0 #222;
+}
+
+.keypad button:hover {
+    background: #555;
+}
+
+.keypad button:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 #222;
+}
+
+.keypad .secondary {
+    background: #333;
+    font-size: 14px;
+}
+
+.keypad .operator {
+    background: #555;
+    font-size: 24px;
+}
+
+.keypad .equals {
+    background: #777;
+    font-size: 25px;
+}
+
+.keypad .control {
+    background: #292929;
+    color: #ddd;
+    font-size: 14px;
+}
+
+.side-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 350px;
+    background: #242424;
+    border-left: 1px solid #444;
+    padding: 20px;
+    z-index: 20;
+    overflow-y: auto;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.panel-header h2 {
+    font-size: 20px;
+}
+
+.panel-header button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.clear-history {
+    width: 100%;
+    background: #333;
+    color: white;
+    border: 1px solid #555;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.history-item {
+    background: #303030;
+    border: 1px solid #444;
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.history-item:hover {
+    background: #3d3d3d;
+}
+
+.history-expression {
+    color: #aaa;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.history-result {
+    font-size: 18px;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+}
+
+.modal-content {
+    width: 600px;
+    max-width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    background: #272727;
+    border: 1px solid #555;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.modal-header button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.modal-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.modal-grid button {
+    padding: 15px;
+    background: #353535;
+    border: 1px solid #555;
+    color: white;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.modal-grid button:hover {
+    background: #464646;
+}
+
+.mode-title {
+    font-size: 16px;
+    color: #aaa;
+    margin-bottom: 10px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #bbb;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #555;
+    background: #333;
+    color: white;
+}
+
+.action-button {
+    background: #555;
+    color: white;
+    border: 1px solid #777;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.table-result {
+    margin-top: 15px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.table-result table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-result th,
+.table-result td {
+    border: 1px solid #555;
+    padding: 8px;
+    text-align: center;
+}
+
+@media (max-width: 700px) {
+
+    .app {
+        min-height: 100vh;
+        max-width: 100%;
+        border-radius: 0;
+    }
+
+    .calculator {
+        padding: 12px;
+    }
+
+    .top-bar {
+        padding: 0 15px;
+    }
+
+    .top-controls button {
+        padding: 7px;
+        font-size: 10px;
+    }
+
+    .keypad {
+        gap: 5px;
+    }
+
+    .keypad button {
+        height: 50px;
+        font-size: 17px;
+    }
+
+    .mode-bar {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .function-row button,
+    .memory-row button {
+        font-size: 10px;
+    }
+}
