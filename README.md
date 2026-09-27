@@ -1,311 +1,718 @@
-# 🧮 Casio FX-991ES Plus Web Calculator
+# 🧮 Casio FX-991ES Plus Desktop Calculator
 
-A modern **scientific calculator web application** inspired by the design and functionality of the **Casio FX-991ES Plus**. This project is built using **HTML, CSS, and JavaScript** and combines a realistic calculator interface with useful scientific functions.
+A modern **scientific calculator application** inspired by the design and functionality of the **Casio FX-991ES Plus**.
 
-The project can also run as a **desktop application using Electron**, allowing the calculator to run in its own application window instead of only inside a web browser.
+The project was originally created as a web calculator using **HTML, CSS, and JavaScript**, and was later converted into a **standalone Windows desktop application using Electron**.
+
+The desktop version runs in its own application window and can be packaged into an installable `.exe` file.
+
+---
 
 ## 📌 Description
 
-This project recreates the look and feel of a Casio scientific calculator in a web browser and as a desktop application.
+This project recreates the look and functionality of a Casio-style scientific calculator as a computer application.
 
-The calculator includes basic arithmetic, scientific functions, trigonometry, logarithms, powers, factorials, percentage calculations, keyboard controls, calculation history, answer memory, and DEG/RAD modes.
+It provides a calculator interface with basic arithmetic, scientific calculations, trigonometry, logarithms, powers, factorials, percentages, memory functions, calculation history, angle modes, conversions, statistics, matrices, vectors, equations, tables, and other scientific calculator features.
 
-The project is designed as a beginner-friendly web development project for practicing **HTML, CSS, JavaScript, DOM manipulation, event handling, mathematical programming, and Electron desktop application development**.
+The project demonstrates how a normal web application can be converted into a standalone desktop application using Electron.
 
-The calculator interface was also optimized so that the **entire calculator remains visible when the application window is resized**, preventing the layout from becoming cut off or displaying only part of the calculator.
+The calculator can be used in two ways:
 
-## ✨ Features
+- 🌐 As a web calculator
+- 🖥️ As a Windows desktop application
 
-### 🔢 Basic Calculations
+The desktop version opens in its own application window instead of requiring the calculator to remain open in a browser tab.
 
-* Addition
-* Subtraction
-* Multiplication
-* Division
-* Decimal numbers
-* Parentheses
-* Exponents
-* Pi (π)
-* Euler's number (e)
-* Percentage
-* Absolute value
+---
 
-### 🧮 Scientific Functions
+# ✨ Features
 
-* Square (`x²`)
-* Cube (`x³`)
-* Square root (`√`)
-* Cube root (`∛`)
-* Reciprocal (`1/x`)
-* Factorial (`x!`)
-* Power (`xʸ`)
-* Logarithm (`log`)
-* Natural logarithm (`ln`)
-
-### 📐 Trigonometry
-
-* Sine (`sin`)
-* Cosine (`cos`)
-* Tangent (`tan`)
-* Inverse sine (`sin⁻¹`)
-* Inverse cosine (`cos⁻¹`)
-* Inverse tangent (`tan⁻¹`)
-
-### 📏 Angle Modes
+## 🔢 Basic Calculations
 
 The calculator supports:
 
-* DEG – Degrees
-* RAD – Radians
+- Addition
+- Subtraction
+- Multiplication
+- Division
+- Decimal numbers
+- Parentheses
+- Exponents
+- Pi (`π`)
+- Euler's number (`e`)
+- Percentages
+- Absolute value
+- Answer recall
 
-You can switch between the two modes using the **DEG/RAD** button.
+Example:
 
-### 💾 Answer & History
+```text
+25 + 15 = 40
+```
 
-* `ANS` button for recalling the previous answer
-* Calculation history
-* Clear calculation history
-* Previous calculation shown above the main display
+---
 
-### ⌨️ Keyboard Support
+## 🧮 Scientific Functions
 
-The calculator can also be controlled using the computer keyboard.
+Scientific functions include:
 
-| Key         | Function       |
-| ----------- | -------------- |
-| `0-9`       | Enter numbers  |
-| `+`         | Addition       |
-| `-`         | Subtraction    |
-| `*`         | Multiplication |
-| `/`         | Division       |
-| `.`         | Decimal        |
-| `(` `)`     | Parentheses    |
-| `Enter`     | Calculate      |
-| `Backspace` | Delete         |
-| `Escape`    | Clear          |
+- Square (`x²`)
+- Square root (`√`)
+- Cube root (`∛`)
+- Powers (`xʸ`)
+- Factorial (`x!`)
+- Reciprocal calculations
+- Logarithm (`log`)
+- Natural logarithm (`ln`)
+- `10ˣ`
+- `eˣ`
+- Floor
+- Ceiling
+- Round
+- GCD
+- LCM
+- MOD
+- Random number generation
 
-### 🎛️ Calculator Controls
+---
 
-The interface includes several Casio-inspired controls:
+## 📐 Trigonometry
 
-* SHIFT
-* ALPHA
-* DEL
-* AC
-* DEG/RAD
-* ANS
-* HISTORY
-* CLR HIST
+The calculator includes:
 
-The **SHIFT** indicator also appears on the calculator display when activated.
+- Sine (`sin`)
+- Cosine (`cos`)
+- Tangent (`tan`)
+- Inverse sine (`sin⁻¹`)
+- Inverse cosine (`cos⁻¹`)
+- Inverse tangent (`tan⁻¹`)
+- Hyperbolic sine (`sinh`)
+- Hyperbolic cosine (`cosh`)
+- Hyperbolic tangent (`tanh`)
 
-## 🖥️ Desktop Application
+---
 
-The calculator can be packaged and launched as a **desktop application using Electron**.
+## 📏 Angle Modes
 
-Electron allows the HTML, CSS, and JavaScript calculator to run inside its own application window.
+The calculator supports different angle modes:
 
-### Electron Features
+- DEG – Degrees
+- RAD – Radians
+- GRA – Gradians
 
-* Runs as a standalone desktop application
-* Dedicated calculator window
-* Custom application window size
-* Responsive calculator layout
-* Calculator remains visible when resizing the window
-* Prevents the calculator from being cut off on smaller window sizes
-* Uses a secure preload script
-* Uses Electron's main process to create and manage the application window
+The current angle mode is displayed at the top of the calculator display.
 
-## 📐 Responsive Window Layout
+---
 
-The calculator was updated to properly handle different window sizes.
+# 💾 Memory Functions
 
-Previously, resizing the application could cause the calculator to become partially hidden or positioned incorrectly.
+The calculator includes memory functions:
 
-The updated layout uses responsive CSS and Electron window settings to keep the calculator properly centered and visible.
+- `MC` – Memory Clear
+- `MR` – Memory Recall
+- `M+` – Add to Memory
+- `M-` – Subtract from Memory
+- `ANS` – Recall Previous Answer
 
-This allows the application to maintain the calculator's proportions while adapting to different screen and window sizes.
+The calculator also displays an `M` indicator when a value is stored in memory.
 
-The calculator can therefore be used in:
+---
 
-* Normal desktop windows
-* Maximized windows
-* Smaller resized windows
-* Different screen resolutions
+# 📜 Calculation History
 
-## 🎨 Design Features
-
-The calculator has been designed to resemble a modernized Casio scientific calculator.
+The calculator includes a calculation history system.
 
 Features include:
 
-* Casio-inspired layout
-* Dark calculator body
-* LCD-style green display
-* Solar-panel design
-* Rounded calculator body
-* Realistic button shadows
-* Button press animations
-* Hover effects
-* Responsive layout
-* Mobile-friendly design
-* Electron desktop window support
-* Automatic responsive scaling
-* Orbitron digital-style display font
-* Modern gradient background
+- Save previous calculations
+- Display previous expressions
+- Display previous results
+- Select previous calculations
+- Clear calculation history
+- Store history using browser local storage
 
-## 🛠️ Technologies Used
+Example:
 
-### HTML5
+```text
+25 + 15
+= 40
+```
 
-Used to create the calculator structure, display, buttons, and controls.
+The history panel allows previous calculations to be reviewed and reused.
 
-### CSS3
+---
 
-Used for:
+# ⌨️ Keyboard Support
 
-* Calculator styling
-* Grid layouts
-* Colors
-* Shadows
-* Gradients
-* Animations
-* Responsive design
-* LCD display styling
-* Calculator scaling
-* Window resizing behavior
+The calculator can also be controlled using a computer keyboard.
 
-### JavaScript
+| Key | Function |
+|---|---|
+| `0-9` | Enter numbers |
+| `+` | Addition |
+| `-` | Subtraction |
+| `*` | Multiplication |
+| `/` | Division |
+| `.` | Decimal |
+| `(` `)` | Parentheses |
+| `Enter` | Calculate |
+| `Backspace` | Delete |
+| `Escape` | Clear |
 
-Used to implement:
+This allows the calculator to be used without clicking every button with the mouse.
 
-* Calculator operations
-* Scientific calculations
-* Trigonometric functions
-* DEG/RAD conversion
-* Factorials
-* Powers
-* Square and cube calculations
-* Answer memory
-* Calculation history
-* Keyboard controls
-* Error handling
-* SHIFT and ALPHA states
-* Dynamic calculator interactions
+---
 
-### Electron
+# 🧠 Calculator Modes
 
-Used to convert the web calculator into a desktop application.
+The calculator includes several scientific calculator modes:
+
+- `COMP` – Standard calculations
+- `CMPLX` – Complex numbers
+- `STAT` – Statistics
+- `BASE-N` – Number base conversions
+- `EQN` – Equation solving
+- `MATRIX` – Matrix calculations
+- `TABLE` – Function tables
+- `VECTOR` – Vector calculations
+
+The current mode is displayed on the calculator screen.
+
+---
+
+# 🔢 BASE-N
+
+The calculator includes number-base conversion between:
+
+- Decimal
+- Binary
+- Octal
+- Hexadecimal
+
+Example:
+
+```text
+Decimal: 255
+
+Binary: 11111111
+Octal: 377
+Hexadecimal: FF
+```
+
+---
+
+# 📊 Statistics
+
+The statistics mode can calculate values from a set of numbers.
+
+Supported calculations include:
+
+- Number of values
+- Sum
+- Mean
+- Median
+- Minimum
+- Maximum
+- Variance
+- Standard deviation
+
+Example:
+
+```text
+10, 20, 30, 40, 50
+```
+
+The calculator can calculate the statistical values for the data set.
+
+---
+
+# 🔢 Complex Numbers
+
+The complex-number mode supports expressions such as:
+
+```text
+3 + 4i
+```
+
+It can display:
+
+- Complex value
+- Magnitude
+- Argument
+
+---
+
+# 🧮 Matrix Calculator
+
+The matrix mode supports matrix calculations.
+
+Supported operations include:
+
+- Matrix addition
+- Matrix multiplication
+- Determinant
+- Matrix inverse
+
+Example:
+
+```text
+A = [[1,2],[3,4]]
+```
+
+---
+
+# ➡️ Vector Calculator
+
+The vector mode supports:
+
+- Vector addition
+- Dot product
+- Cross product
+
+Example:
+
+```text
+A = [1,2,3]
+B = [4,5,6]
+```
+
+---
+
+# 📈 TABLE Mode
+
+The TABLE mode allows a mathematical function to be evaluated across a range of values.
+
+You can enter:
+
+- Function
+- Starting value
+- Ending value
+- Step value
+
+Example:
+
+```text
+f(x) = x² + 2x
+```
+
+The calculator generates a table containing:
+
+```text
+x       f(x)
+-5      15
+-4       8
+-3       3
+...
+```
+
+---
+
+# 📐 Equation Solver
+
+The calculator includes an equation-solving mode for mathematical expressions.
+
+Example:
+
+```text
+x² - 5x + 6
+```
+
+The calculator attempts to find the numerical solutions for `x`.
+
+---
+
+# 🔄 Unit Conversions
+
+The calculator includes several conversion tools.
+
+### Length
+
+Supports conversions between:
+
+- Meter
+- Kilometer
+- Centimeter
+- Millimeter
+- Mile
+- Foot
+- Inch
+
+### Mass
+
+Supports:
+
+- Kilogram
+- Gram
+- Pound
+- Ounce
+
+### Temperature
+
+Supports:
+
+- Celsius
+- Fahrenheit
+- Kelvin
+
+### Speed
+
+Includes conversions involving:
+
+- km/h
+- m/s
+- mph
+
+### Area
+
+Includes conversions involving:
+
+- Square meters
+- Square feet
+- Square centimeters
+
+### Volume
+
+Includes conversions involving:
+
+- Liters
+- Milliliters
+- Cubic meters
+- US gallons
+
+---
+
+# 🔬 Scientific Constants
+
+The calculator includes several scientific constants, including:
+
+- Speed of light
+- Gravitational constant
+- Planck constant
+- Electron charge
+- Standard gravity
+- Gas constant
+- Boltzmann constant
+- Electron mass
+- Proton mass
+
+These can be inserted into calculations through the constants menu.
+
+---
+
+# 🖥️ Desktop Application
+
+The calculator is packaged as a **Windows desktop application using Electron**.
+
+Instead of opening the calculator inside a normal browser tab, Electron creates a dedicated application window.
+
+The application can be launched like a normal Windows program.
+
+### Desktop application features
+
+- Standalone application window
+- Windows desktop support
+- Custom application size
+- Resizable application window
+- Responsive calculator interface
+- Dedicated application title
+- No browser tab required
+- Can be packaged into a Windows installer
+- Can be installed like a normal Windows application
+
+---
+
+# 📦 Windows Installer
+
+The project can be packaged into a Windows installer.
+
+The generated installer is:
+
+```text
+FX-991ES PLUS Calculator Setup 1.0.0.exe
+```
+
+After running the installer, the calculator can be installed and launched as a normal Windows desktop application.
+
+The installer is generated inside the project's:
+
+```text
+dist/
+```
+
+folder.
+
+---
+
+# 📐 Responsive Window Layout
+
+The calculator interface is designed to work with different application window sizes.
+
+The layout uses responsive CSS and Electron window settings to help keep the calculator visible when the application is resized.
+
+The application can be used in:
+
+- Normal desktop windows
+- Maximized windows
+- Smaller resized windows
+- Different screen resolutions
+
+The calculator interface automatically adapts to available space.
+
+---
+
+# 🎨 Design Features
+
+The calculator uses a modernized scientific calculator design.
+
+Features include:
+
+- Casio-inspired calculator layout
+- Dark calculator body
+- LCD-style display
+- Scientific calculator buttons
+- Button shadows
+- Hover effects
+- Button press animations
+- Responsive layout
+- Desktop application window
+- Modern interface
+- Scientific calculator status indicators
+- Calculator history panel
+- Modal menus for advanced functions
+
+The goal is to make the application feel similar to using a physical scientific calculator while taking advantage of a desktop computer interface.
+
+---
+
+# 🛠️ Technologies Used
+
+## HTML5
+
+HTML is used to create:
+
+- Calculator structure
+- Display
+- Buttons
+- Menus
+- History panel
+- Calculator controls
+- Modal windows
+
+---
+
+## CSS3
+
+CSS is used for:
+
+- Calculator styling
+- Grid layouts
+- Colors
+- Shadows
+- Gradients
+- Animations
+- Responsive design
+- LCD display styling
+- Button design
+- Application layout
+- Window resizing behavior
+
+---
+
+## JavaScript
+
+JavaScript is responsible for:
+
+- Calculator operations
+- Scientific calculations
+- Trigonometric functions
+- Angle conversion
+- Logarithms
+- Factorials
+- Powers
+- Percentages
+- Memory functions
+- Calculation history
+- Keyboard controls
+- Error handling
+- Calculator modes
+- Statistics
+- Matrix calculations
+- Vector calculations
+- Equation solving
+- Table generation
+- Number-base conversions
+- Unit conversions
+- Scientific constants
+
+---
+
+## Electron
+
+Electron is used to convert the web calculator into a desktop application.
 
 Electron handles:
 
-* Creating the application window
-* Loading the calculator interface
-* Window sizing
-* Window resizing
-* Desktop application behavior
-* Communication between the Electron process and web application
+- Creating the desktop window
+- Loading the calculator interface
+- Application sizing
+- Window resizing
+- Application lifecycle
+- Windows desktop packaging
+- Creating the `.exe` installer
 
-### Google Fonts
+---
 
-The **Orbitron** font is used to create a digital calculator-style display.
+## Math.js
 
-## 📂 Project Structure
+The calculator uses **Math.js** for many of its advanced mathematical calculations.
+
+Math.js provides functionality for:
+
+- Mathematical expressions
+- Complex numbers
+- Matrices
+- Vectors
+- Statistics
+- Mathematical functions
+- Numerical calculations
+
+---
+
+# 📂 Project Structure
 
 ```text
-casio-calculator/
+FX-991ES-PLUS/
 │
 ├── index.html
 ├── style.css
 ├── script.js
 ├── main.js
-├── preload.js
 ├── package.json
+├── package-lock.json
+├── node_modules/
+├── dist/
+│   └── FX-991ES PLUS Calculator Setup 1.0.0.exe
 └── README.md
 ```
 
-### `index.html`
+---
 
-Contains the calculator's structure, including:
+## `index.html`
 
-* Calculator body
-* Brand section
-* Solar panel
-* LCD display
-* Status indicators
-* Scientific buttons
-* Number keypad
-* Function buttons
-
-### `style.css`
-
-Controls the appearance of the calculator, including:
-
-* Dark body design
-* LCD display
-* Button colors
-* Button shadows
-* Hover effects
-* Press animations
-* Responsive layout
-* Mobile support
-* Calculator scaling
-* Window resizing behavior
-
-### `script.js`
-
-Contains the calculator's main functionality, including:
-
-* Basic arithmetic
-* Scientific operations
-* Trigonometric calculations
-* Inverse trigonometry
-* Logarithms
-* Factorials
-* Percentage
-* Square and cube functions
-* Square and cube roots
-* DEG/RAD modes
-* Answer memory
-* Calculation history
-* Keyboard support
-* Error handling
-
-### `main.js`
-
-Contains the main Electron process.
-
-It is responsible for:
-
-* Creating the Electron application window
-* Loading `index.html`
-* Setting the initial window size
-* Controlling window resizing
-* Managing the desktop application lifecycle
-* Configuring Electron security settings
-
-### `preload.js`
-
-Provides a secure bridge between the Electron application and the calculator interface.
-
-The preload script is loaded before the web page and allows the application to safely expose selected Electron functionality when needed.
-
-### `package.json`
-
-Contains the project's Node.js and Electron configuration.
+Contains the main structure of the calculator.
 
 It includes:
 
-* Project information
-* Electron dependency
-* Application start script
-* Project metadata
+- Calculator interface
+- Display
+- Status indicators
+- Mode buttons
+- Scientific function buttons
+- Number keypad
+- Memory controls
+- History panel
+- Advanced function menus
 
-## 🚀 How to Run
+---
 
-### 🌐 Run as a Web Calculator
+## `style.css`
 
-1. Download or clone this repository.
+Controls the visual appearance of the calculator.
+
+It handles:
+
+- Calculator body
+- Display
+- Buttons
+- Button shadows
+- Hover effects
+- Animations
+- Responsive layouts
+- Application sizing
+- History panel
+- Modal windows
+
+---
+
+## `script.js`
+
+Contains the main calculator functionality.
+
+It handles:
+
+- Basic arithmetic
+- Scientific calculations
+- Trigonometry
+- Inverse trigonometry
+- Hyperbolic functions
+- Logarithms
+- Factorials
+- Powers
+- Percentages
+- Memory functions
+- Answer recall
+- Calculation history
+- Angle modes
+- Statistics
+- Complex numbers
+- Matrices
+- Vectors
+- Equations
+- Tables
+- Number-base conversions
+- Unit conversions
+- Scientific constants
+- Keyboard input
+
+---
+
+## `main.js`
+
+Contains the Electron main process.
+
+It is responsible for:
+
+- Creating the desktop application window
+- Loading `index.html`
+- Setting the initial application size
+- Controlling window resizing
+- Managing the Electron application lifecycle
+
+---
+
+## `package.json`
+
+Contains the Node.js and Electron project configuration.
+
+It includes:
+
+- Project name
+- Project version
+- Description
+- Electron configuration
+- Start script
+- Build script
+- Electron Builder configuration
+
+Example commands include:
+
+```bash
+npm start
+```
+
+and:
+
+```bash
+npm run build
+```
+
+---
+
+# 🚀 How to Run
+
+## 🌐 Run as a Web Calculator
+
+1. Download or clone the repository.
 
 2. Open the project folder.
 
@@ -315,157 +722,271 @@ It includes:
 index.html
 ```
 
-4. The calculator will launch in your default web browser.
+4. The calculator will open in your web browser.
 
-No server or database is required for the browser version.
+---
 
-### 🖥️ Run as an Electron Desktop Application
+# 🖥️ Run as a Desktop Application
 
 Make sure **Node.js** and **npm** are installed.
 
-1. Open the project folder in a terminal.
+### Step 1 — Open the Project
 
-2. Install the project dependencies:
+Open the project folder in VS Code.
+
+### Step 2 — Open the Terminal
+
+In VS Code, select:
+
+```text
+Terminal → New Terminal
+```
+
+### Step 3 — Install Dependencies
+
+Run:
 
 ```bash
 npm install
 ```
 
-3. Start the Electron application:
+This installs the required Electron packages.
+
+### Step 4 — Start the Application
+
+Run:
 
 ```bash
 npm start
 ```
 
-4. The calculator will open in its own desktop application window.
+The calculator will open in its own desktop application window.
 
-### 🔄 Running the Application Again
+---
 
-After the project has already been installed, you normally only need to run:
+# 📦 Build the Windows Installer
+
+To create the Windows installer, run:
+
+```bash
+npm run build
+```
+
+After the build finishes, open:
+
+```text
+dist/
+```
+
+The installer will be located there.
+
+Example:
+
+```text
+FX-991ES PLUS Calculator Setup 1.0.0.exe
+```
+
+Double-click the `.exe` file to install the calculator.
+
+---
+
+# 🔄 Running the Application Again
+
+After the dependencies have already been installed, you normally only need:
 
 ```bash
 npm start
 ```
 
-There is no need to reinstall the dependencies every time unless the project dependencies have changed.
+You do not need to run `npm install` every time.
 
-## 🧪 Example Calculations
+Only run `npm install` again if the project's dependencies have changed or the project has been installed on another computer.
 
-### Basic Arithmetic
+---
 
-```text
-25 + 15 = 40
-```
+# 🧪 Example Calculations
 
-### Square Root
+## Basic Arithmetic
 
 ```text
-√144 = 12
+25 + 15
 ```
 
-### Power
+Result:
 
 ```text
-2 ^ 8 = 256
+40
 ```
 
-### Factorial
+---
+
+## Square Root
 
 ```text
-5! = 120
+sqrt(144)
 ```
 
-### Percentage
+Result:
 
 ```text
-50% = 0.5
+12
 ```
 
-### Trigonometry
+---
+
+## Power
+
+```text
+2 ^ 8
+```
+
+Result:
+
+```text
+256
+```
+
+---
+
+## Factorial
+
+```text
+factorial(5)
+```
+
+Result:
+
+```text
+120
+```
+
+---
+
+## Percentage
+
+```text
+50%
+```
+
+Result:
+
+```text
+0.5
+```
+
+---
+
+## Trigonometry
 
 In DEG mode:
 
 ```text
-sin(30) = 0.5
+sin(30)
 ```
 
-### Logarithm
+Result:
 
 ```text
-log(100) = 2
+0.5
 ```
 
-## 🎯 Purpose of the Project
+---
+
+## Logarithm
+
+```text
+log(100)
+```
+
+Result:
+
+```text
+2
+```
+
+---
+
+# 🎯 Purpose of the Project
 
 This project was created to practice and demonstrate:
 
-* HTML5 development
-* CSS3 styling
-* JavaScript programming
-* DOM manipulation
-* Event handling
-* Functions
-* Conditional statements
-* Mathematical operations
-* Arrays
-* Keyboard events
-* Responsive web design
-* User interface design
-* Electron application development
-* Desktop application structure
-* Basic Node.js project configuration
+- HTML5 development
+- CSS3 styling
+- JavaScript programming
+- DOM manipulation
+- Event handling
+- JavaScript functions
+- Conditional statements
+- Arrays
+- Mathematical programming
+- Keyboard events
+- Responsive web design
+- User interface design
+- Scientific calculator development
+- Electron desktop application development
+- Node.js project configuration
+- Windows application packaging
 
-It also demonstrates how a physical calculator can be recreated as an interactive web application and converted into a standalone desktop application.
+The project also demonstrates how a web-based application can be converted into a standalone desktop application.
 
-## 🔮 Future Improvements
+---
 
-The project can continue to be expanded with more advanced Casio-style features:
+# 🔮 Future Improvements
 
-* [ ] Complete SHIFT functionality
-* [ ] Complete ALPHA functionality
-* [ ] MODE menu
-* [ ] SETUP menu
-* [ ] Fraction calculations
-* [ ] Mixed fractions
-* [ ] Decimal ↔ fraction conversion
-* [ ] `S↔D`
-* [ ] EXP / scientific notation
-* [ ] ENG notation
-* [ ] M+ / M− memory functions
-* [ ] STO / RCL memory functions
-* [ ] Statistics mode
-* [ ] Regression calculations
-* [ ] Equation solver
-* [ ] Simultaneous equations
-* [ ] Polynomial equations
-* [ ] Matrix calculations
-* [ ] Vector calculations
-* [ ] Complex numbers
-* [ ] Random number generation
-* [ ] Permutations and combinations
-* [ ] Prime factorization
-* [ ] More realistic FX-991ES Plus button layout
-* [ ] Two-line LCD display
-* [ ] Calculator sound effects
-* [ ] Theme customization
-* [ ] Improved calculation history
-* [ ] Local storage for saved calculations
-* [ ] Package the calculator into an installable `.exe`
-* [ ] Create an application icon
-* [ ] Add automatic application updates
-* [ ] Add a dedicated settings menu
+The project can continue to be expanded with more advanced calculator functionality.
 
-## ⚠️ Disclaimer
+Possible improvements include:
+
+- [ ] More accurate Natural Textbook Display
+- [ ] Fraction input and calculations
+- [ ] Mixed fraction support
+- [ ] Decimal ↔ fraction conversion
+- [ ] `S↔D`
+- [ ] Engineering notation
+- [ ] More complete `SHIFT` functionality
+- [ ] More complete `ALPHA` functionality
+- [ ] `STO` / `RCL` memory functions
+- [ ] More advanced statistics and regression
+- [ ] More equation types
+- [ ] Simultaneous equation solver
+- [ ] Polynomial equation solver
+- [ ] More advanced matrix operations
+- [ ] More advanced vector operations
+- [ ] More complex-number functions
+- [ ] Numerical differentiation
+- [ ] Numerical integration
+- [ ] `CALC` functionality
+- [ ] `SOLVE` functionality
+- [ ] More scientific constants
+- [ ] More conversion categories
+- [ ] More realistic FX-991ES PLUS button layout
+- [ ] Improved LCD display
+- [ ] Calculator sound effects
+- [ ] Custom application icon
+- [ ] Additional themes
+- [ ] Improved history management
+- [ ] Saved calculator sessions
+- [ ] Automatic updates
+- [ ] Improved Windows installer
+- [ ] Portable Windows version
+
+---
+
+# ⚠️ Disclaimer
 
 This project is **inspired by the Casio FX-991ES Plus** for educational and personal development purposes.
 
 It is **not an official Casio product** and is not affiliated with or endorsed by Casio.
 
-## 👨‍💻 Author
+The purpose of this project is to practice programming, web development, mathematical programming, and desktop application development.
+
+---
+
+# 👨‍💻 Author
 
 **Jose Navoa**
 
-Created as a web development, JavaScript, and Electron practice project.
+Created as a web development, JavaScript, mathematical programming, and Electron desktop application project.
 
 ---
 
